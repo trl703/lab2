@@ -1,0 +1,42 @@
+---
+title: "Lab 2"
+author: "Tracie-Lynn Lamoreux"
+date: "2023-03-02"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+choco<- read.csv("https://ds202-at-isu.github.io/labs/data/choco.csv")
+library(ggplot2)
+library(tidyverse)
+head(choco)
+nrow(choco)
+```
+
+1. What is the overall number of chocolate bars rated?
+```{r}
+nrow(choco)
+```
+
+2. How does the number of ratings depend on the year? Draw a bar chart of the number of reports
+```{r}
+ggplot(data=choco,aes(y=Rating))+ geom_bar()+ facet_wrap(~Review.Date)
+```
+Questions set 2:
+1. For each of the questions below provide at least one graphic as a basis for your answer.
+a. How are ratings distributed? Draw a histogram of ratings and describe it.
+
+```{r}
+ggplot(data=choco,aes(y=Rating))+geom_histogram(bins=15)+coord_flip()
+```
+
+b. Do ratings depend on the cocoa percentage of a chocolate bar?
+```{r}
+choco$Cocoa.Pct<- as.factor(choco$Cocoa.Pct)
+ggplot(data=choco, aes(x=Cocoa.Pct,y=Rating))+geom_boxplot()+coord_flip()
+```
+c. How do ratings compare across different company locations? Focus on the three locations with the most ratings.
+```{r}
+df<- dplyr::filter(choco, Company.Location %in% c("U.S.A.", "France", "Canada")) 
+ggplot(data=df,aes(x=Company, y= Rating))+geom_boxplot()+coord_flip()
+```
