@@ -46,6 +46,15 @@ ggplot(data=df,aes(x=Company, y= Rating))+geom_boxplot()+coord_flip()
 ```
 
 
+
+Macy's Question
+What type of choco bean has the highest rating out of the top three bean types (Trinitario, Criollo, Forastero) ?
+```{r}
+bean_types = dplyr::filter(choco, Bean.Type %in% c("Trinitario", "Criollo", "Forastero"))
+ggplot(bean_types, aes(x = Bean.Type, y = Rating)) + geom_boxplot()
+```
+In this graph we see that there is not much of a difference between the type of bean used and the rating. Most of the ratings fall in between the 3 - 3.5 ratings. The Forastero bean is very slightly lower than the others but the ratings for the Criollo and Trinitario beans are very similar. 
+
 Nic's question: does the year the review was made affect the rating of the cocoa?
 
 ```{r}
@@ -62,4 +71,5 @@ ggplot(data=choco, aes(x=Broad.Bean.Origin,y=Cocoa.Pct))+geom_boxplot()+coord_fl
 ```
 
 Answer: Yes! It does. you can see Ecuador has a low cocoa percentage compared to others.
+
 
