@@ -1,6 +1,6 @@
 ---
 title: "Lab 2"
-author: "Tracie-Lynn Lamoreux, Macy Schanbacher"
+author: "Tracie-Lynn Lamoreux, Macy Schanbacher, Nic Rhoads"
 date: "2023-03-02"
 output: html_document
 ---
