@@ -53,6 +53,7 @@ ggplot(data = choco, aes(x = Review.Date, y = Rating)) + geom_point(position="ji
 ```
 
 Yes, the average goes up over time. The values are also more condensed towards the average, as they were more spread out in early years.
+
 Tracie-Lynn's Question:
 Does Bean Origin Affect Cacao Percentage?
 ```{r}
