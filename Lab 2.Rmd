@@ -45,8 +45,6 @@ df<- dplyr::filter(choco, Company.Location %in% c("U.S.A.", "France", "Canada"))
 ggplot(data=df,aes(x=Company, y= Rating))+geom_boxplot()+coord_flip()
 ```
 
-
-
 Macy's Question
 What type of choco bean has the highest rating out of the top three bean types (Trinitario, Criollo, Forastero) ?
 ```{r}
