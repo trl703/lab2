@@ -22,6 +22,9 @@ nrow(choco)
 ```{r}
 ggplot(data=choco,aes(y=Rating))+ geom_bar()+ facet_wrap(~Review.Date)
 ```
+*It seems the ratings for each year go up until the year 2015, and then drop after.
+
+
 Questions set 2:
 1. For each of the questions below provide at least one graphic as a basis for your answer.
 a. How are ratings distributed? Draw a histogram of ratings and describe it.
@@ -29,17 +32,19 @@ a. How are ratings distributed? Draw a histogram of ratings and describe it.
 ```{r}
 ggplot(data=choco,aes(y=Rating))+geom_histogram(bins=15)+coord_flip()
 ```
-
+*It is slightly skewed, but for the most part symmetrical, and bimodal.
 b. Do ratings depend on the cocoa percentage of a chocolate bar?
 ```{r}
 choco$Cocoa.Pct<- as.factor(choco$Cocoa.Pct)
 ggplot(data=choco, aes(x=Cocoa.Pct,y=Rating))+geom_boxplot()+coord_flip()
 ```
+*The 100% cocao seems to have lower ratings, but for the most part the variation in each rating fluctuates and does increase nor decrease with an increase in cocao percentage.
 c. How do ratings compare across different company locations? Focus on the three locations with the most ratings.
 ```{r}
 df<- dplyr::filter(choco, Company.Location %in% c("U.S.A.", "France", "Canada")) 
 ggplot(data=df,aes(x=Company, y= Rating))+geom_boxplot()+coord_flip()
 ```
+
 
 Nic's question: does the origin of the bean affect the rating of the cocoa?
 
@@ -48,3 +53,12 @@ ggplot(data = choco, aes(x = Review.Date, y = Rating)) + geom_point(position="ji
 ```
 
 Yes, the average goes up over time. The values are also more condensed towards the average, as they were more spread out in early years.
+Tracie-Lynn's Question:
+Does Bean Origin Affect Cacao Percentage?
+```{r}
+choco$Cocoa.Pct<- as.numeric(choco$Cocoa.Pct)
+ggplot(data=choco, aes(x=Broad.Bean.Origin,y=Cocoa.Pct))+geom_boxplot()+coord_flip()
+```
+
+Answer: Yes! It does. you can see Ecuador has a low cocoa percentage compared to others.
+
