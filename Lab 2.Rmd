@@ -46,7 +46,7 @@ ggplot(data=df,aes(x=Company, y= Rating))+geom_boxplot()+coord_flip()
 ```
 
 
-Nic's question: does the origin of the bean affect the rating of the cocoa?
+Nic's question: does the year the review was made affect the rating of the cocoa?
 
 ```{r}
 ggplot(data = choco, aes(x = Review.Date, y = Rating)) + geom_point(position="jitter")
