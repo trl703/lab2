@@ -44,6 +44,15 @@ c. How do ratings compare across different company locations? Focus on the three
 df<- dplyr::filter(choco, Company.Location %in% c("U.S.A.", "France", "Canada")) 
 ggplot(data=df,aes(x=Company, y= Rating))+geom_boxplot()+coord_flip()
 ```
+
+
+Nic's question: does the origin of the bean affect the rating of the cocoa?
+
+```{r}
+ggplot(data = choco, aes(x = Review.Date, y = Rating)) + geom_point(position="jitter")
+```
+
+Yes, the average goes up over time. The values are also more condensed towards the average, as they were more spread out in early years.
 Tracie-Lynn's Question:
 Does Bean Origin Affect Cacao Percentage?
 ```{r}
@@ -52,3 +61,4 @@ ggplot(data=choco, aes(x=Broad.Bean.Origin,y=Cocoa.Pct))+geom_boxplot()+coord_fl
 ```
 
 Answer: Yes! It does. you can see Ecuador has a low cocoa percentage compared to others.
+
