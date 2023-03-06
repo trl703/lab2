@@ -66,8 +66,11 @@ Does Bean Origin Affect Cacao Percentage?
 ```{r}
 choco$Cocoa.Pct<- as.numeric(choco$Cocoa.Pct)
 ggplot(data=choco, aes(x=Broad.Bean.Origin,y=Cocoa.Pct))+geom_boxplot()+coord_flip()
+
+?dgeom
 ```
 
 Answer: Yes! It does. you can see Ecuador has a low cocoa percentage compared to others.
 
-
+Workflow comments:
+The workflow between us was very efficient. It was helpful because we each had a different prespective that led us to question different aspects of the dataset. It was also useful because we each had different experiences using github as well as R. Since we all had different experiences leading to the conclusions drawn to this homework assignment, it felt like we each offered information to help the progress of the homework assignment. 
